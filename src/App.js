@@ -1,22 +1,18 @@
 import React from 'react';
 import logo from './logo.svg';
-import HomePage from './pages/homepage/homepage.component';
+import HomePage from './pages/home/homepage.component';
 import { Route, Switch, Link } from 'react-router-dom';
+import ShopPage from './pages/shop/shop.component';
 
-const HatsPage = () => (
-  <div>
-    <h1>hats page</h1>
-  </div>
-)
 
 function App() {
   return (
     <div className="App">
       <Link to='/'>home</Link>
-      <Link to='/hats'>hats page</Link>
+      <Link to='/shop'>hats page</Link>
       <Switch>
         < Route exact path='/' component={HomePage} />
-        <Route exact path='/hats' component={HatsPage} />
+        <Route exact path='/shop' component={ShopPage}/>
       </Switch>
     </div>
   );
