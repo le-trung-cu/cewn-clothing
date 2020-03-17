@@ -3,6 +3,7 @@ import FormInput from '../form-input/form-input.component';
 import './sign-in.styles.scss';
 import CustomButton from '../custom-button/custom-button.component';
 import { signInWithGoogle } from '../../firebase/firebase.utils';
+import { auth } from '../../firebase/firebase.utils';
 
 
 class SignIn extends Component {
@@ -18,6 +19,12 @@ class SignIn extends Component {
 
     handleSubmit = event => {
         event.preventDefault();
+        const { email, password } = this.state;
+        try {
+            auth.signInWithEmailAndPassword(email, password);
+        }catch(error){
+            console.log(error);
+        }
 
         this.setState({ email: '', password: '' });
     }
