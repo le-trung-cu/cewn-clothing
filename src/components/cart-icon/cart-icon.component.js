@@ -4,17 +4,17 @@ import './cart-icon.styles.scss';
 import { toggleCartDropdown } from '../../actions/cart-action';
 import { connect } from 'react-redux';
 
-const CartIcon = ({ toggleCart, cartItems}) => {
+const CartIcon = ({ toggleCart, count}) => {
     return (
         <div className="cart-icon" onClick={() => toggleCart()}>
             <ShoppingIcon className="shopping-icon" />
-            <span className="item-count">{cartItems}</span>
+            <span className="item-count">{count}</span>
         </div>
     );
 };
 
 const mapStateToProp = state => ({
-    cartItems: state.cart.cartItems.reduce((count, item) => count += item.count, 0)
+    count: state.cart.cartItems.reduce((count, item) => count += item.quantity, 0)
 })
 
 const mapDispatchToProp = dispatch => ({

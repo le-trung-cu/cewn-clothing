@@ -13,9 +13,9 @@ export const cartReducer = (state = { hidden: true, cartItems: [] }, action) => 
         case ADD_ITEM:
             const index = state.cartItems.findIndex(item => item.id === action.item.id)
             if (index !== -1) {
-                state.cartItems[index].count++;
+                state.cartItems[index].quantity++;
             } else {
-                state.cartItems.push({ ...action.item, count: 1 });
+                state.cartItems.push({ ...action.item, quantity: 1 });
             }
             return {
                 ...state,
