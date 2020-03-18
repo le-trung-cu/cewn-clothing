@@ -1,6 +1,7 @@
 import {
     TOGGLE_CART_HIDDEN,
-    ADD_ITEM
+    ADD_ITEM,
+    REMOVE_ITEM
 } from '../actions/action-types';
 
 export const cartReducer = (state = { hidden: true, cartItems: [] }, action) => {
@@ -20,6 +21,12 @@ export const cartReducer = (state = { hidden: true, cartItems: [] }, action) => 
             return {
                 ...state,
                 cartItems: [...state.cartItems]
+            }
+        case REMOVE_ITEM:
+            const cartItems = state.cartItems.filter(item => item.id !== action.id);
+            return {
+                ...state,
+                cartItems: [...cartItems]
             }
         default:
             return state;

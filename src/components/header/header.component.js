@@ -9,8 +9,7 @@ import{connect} from 'react-redux';
 import CartIcon from '../cart-icon/cart-icon.component';
 import CartDropdown from '../cart-dropdown/cart-dropdown.component';
 
-const Header = ({ currentUser, hiddenCart, toggleCart }) => {
-
+const Header = ({ currentUser, hiddenCart }) => {
     return (
         <div className="header">
             <Link className="logo-container" to='/'>
@@ -29,7 +28,7 @@ const Header = ({ currentUser, hiddenCart, toggleCart }) => {
                         <div className="option" onClick={() => auth.signOut()}>SIGN OUT</div>
                         : <Link className="option" to='/signin'>SING IN</Link>
                 }
-                <CartIcon />
+                <CartIcon/>
             </div>
             {hiddenCart?null:<CartDropdown/>}
         </div>
@@ -40,5 +39,6 @@ const mapStateToProp = ({user, cart}) => ({
     currentUser: user.currentUser,
     hiddenCart: cart.hidden
 });
+
 
 export default connect(mapStateToProp)(Header);

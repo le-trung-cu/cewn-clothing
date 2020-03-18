@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import SHOP_DATA from './shop.data';
 import CollectionPreview from '../../components/collection-preview/collection-prevew.component';
+import CustomButton from '../../components/custom-button/custom-button.component';
+
 class ShopPage extends Component {
     constructor(props) {
         super(props);
@@ -8,7 +10,7 @@ class ShopPage extends Component {
             collections: SHOP_DATA
         }
     }
-    
+
     render() {
         return (
             <div>
@@ -19,5 +21,6 @@ class ShopPage extends Component {
         );
     }
 }
+
 
 export default ShopPage;

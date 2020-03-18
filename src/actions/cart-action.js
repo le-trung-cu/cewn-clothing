@@ -1,6 +1,6 @@
-import {TOGGLE_CART_HIDDEN, ADD_ITEM} from './action-types';
+import {TOGGLE_CART_HIDDEN, ADD_ITEM, REMOVE_ITEM} from './action-types';
 
-export const toggleCartDropdown = () => ({
+export const toggleCartHidden = () => ({
     type: TOGGLE_CART_HIDDEN,
 });
 
@@ -8,3 +8,8 @@ export const addItem = item => ({
     type: ADD_ITEM,
     item
 });
+
+export const removeItem = id => ({
+    type: REMOVE_ITEM,
+    id
+})
