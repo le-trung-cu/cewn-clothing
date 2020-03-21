@@ -6,7 +6,6 @@ import { connect } from 'react-redux';
 import { selectCartItemsCount } from '../../redux/selectors/cart.selectors'
 
 const CartIcon = ({ toggleCart, count }) => {
-    console.log("render cart icon");
     return (
         <div className="cart-icon" onClick={() => toggleCart()}>
             <ShoppingIcon className="shopping-icon" />
@@ -17,7 +16,7 @@ const CartIcon = ({ toggleCart, count }) => {
 
 const mapStateToProps = state => {
     return ({
-        count: selectCartItemsCount(state)
+        count: selectCartItemsCount(state),
     })
 }
 

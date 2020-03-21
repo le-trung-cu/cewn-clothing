@@ -4,18 +4,21 @@ import './index.css';
 import App from './App';
 import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
+import { PersistGate } from 'redux-persist/integration/react';
 
-import {createStore, applyMiddleware}  from 'redux';
-import logger from 'redux-logger';
-import {rootReducer} from './redux/root-reducer';
-const middlewares = [logger];
-const store = createStore(rootReducer, applyMiddleware(...middlewares));
+import { store, persistor } from './redux/store';
+
+
+
+
 // const store = createStore(rootReducer);
 
 ReactDOM.render(
     <Provider store={store}>
         <BrowserRouter>
-            <App />
+            <PersistGate persistor={persistor}>
+                <App />
+            </PersistGate>
         </BrowserRouter>
     </Provider>,
     document.getElementById('root'));

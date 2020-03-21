@@ -9,9 +9,10 @@ import{connect} from 'react-redux';
 import CartIcon from '../cart-icon/cart-icon.component';
 import CartDropdown from '../cart-dropdown/cart-dropdown.component';
 
-const Header = ({ currentUser, hiddenCart }) => {
+const Header = ({ currentUser, hiddenCart, change }) => {
     return (
         <div className="header">
+            {change.change? <p>xxx</p>:<h1>yyyy</h1>}
             <Link className="logo-container" to='/'>
                 <Logo className="logo" />
             </Link>
@@ -35,9 +36,10 @@ const Header = ({ currentUser, hiddenCart }) => {
     );
 };
 
-const mapStateToProp = ({user, cart}) => ({
+const mapStateToProp = ({user, cart, change}) => ({
     currentUser: user.currentUser,
-    hiddenCart: cart.hidden
+    hiddenCart: cart.hidden,
+    change: change
 });
 
 

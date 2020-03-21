@@ -19,7 +19,7 @@ export const cartReducer = (state = { hidden: true, cartItems: [] }, action) => 
             if (existingCartItem) {
                 cartItems = cartItems.map(
                     item => item === existingCartItem ?
-                        { ...item, quantity: ++item.quantity }
+                        { ...item, quantity: item.quantity + 1 }
                         : item
                 )
             } else {
@@ -36,18 +36,14 @@ export const cartReducer = (state = { hidden: true, cartItems: [] }, action) => 
                 cartItems: [...cartItems]
             }
         case REMOVE_ITEM:
-            cartItems = state.cartItems;
-            existingCartItem = cartItems.find(item => item.id === action.id);
-
+            existingCartItem = state.cartItems.find(item => item.id === action.id);
             if (existingCartItem.quantity !== 1) {
-                cartItems = cartItems.map(item => item.id === action.id ?
-                    { ...item, quantity: --item.quantity }
+                cartItems = state.cartItems.map(item => item.id === action.id ?
+                    { ...item, quantity: item.quantity - 1}
                     : item);
             } else {
-                cartItems = cartItems.filter(item => item.id !== action.id);
+                cartItems = state.cartItems.filter(item => item.id !== action.id);
             }
-
-
             return {
                 ...state,
                 cartItems: [...cartItems]
