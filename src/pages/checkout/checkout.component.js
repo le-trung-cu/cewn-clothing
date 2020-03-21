@@ -3,8 +3,11 @@ import './checkout.styles.scss';
 import { selectCartItems, selectCartTotal } from '../../redux/selectors/cart.selectors';
 import { connect } from 'react-redux';
 import CheckoutItem from '../../components/checkout-item/checkout-item.component';
+import StripeButton from '../../components/stripe-button/stripe-button.component';
 
 const Checkout = ({ cartItems, cartTotal }) => {
+    
+
     return (
         <div className="checkout-page">
             <div className="checkout-header">
@@ -30,6 +33,7 @@ const Checkout = ({ cartItems, cartTotal }) => {
             <div className="total">
                 <span>TOTAL ${cartTotal}</span>
             </div>
+            <StripeButton/>
         </div>
     );
 };
